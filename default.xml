@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
+
+  <remote  name="github"
+           fetch="https://github.com" />
   <remote  name="aosp"
-           fetch=".."
-           review="https://android-review.googlesource.com/" />
+           fetch="https://android.googlesource.com"
+           review="android-review.googlesource.com" />
+  <remote  name="aqua"
+           revision="a8.0.0"
+           fetch="git+ssh://git@github.com/AquariOS" />
   <default revision="refs/tags/android-8.1.0_r1"
            remote="aosp"
+           sync-c="true"
            sync-j="4" />
+
   <project path="build/make" name="platform/build" groups="pdk" >
     <copyfile src="core/root.mk" dest="Makefile" />
     <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
